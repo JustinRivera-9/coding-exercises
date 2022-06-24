@@ -19,19 +19,3 @@ const sortFunction = (arr) => {
 
 sortFunction(myArray)
 
-
-
-
-
-
-
-
-
-/*
-function compareNumber(a, b) {
-  let result = a - b;
-  return result
-}
-
-console.log(myArray.sort(compareNumber))
-*/
