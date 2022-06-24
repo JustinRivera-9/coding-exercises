@@ -7,91 +7,43 @@ const cards = {
   };
 
 // generates random number to be used for array index
-const randomNum = arr => {
-      let random = Math.floor(Math.random() * arr.length);
-      return random;
-  };
+const randomNum = (maxNum) => {
+    return Math.floor(Math.random() * maxNum);
+};
   
 // gets a random index from number array  
-const getNumber = () => {
-    const pickNumber = cards.number[randomNum(cards.number)]; //easier way to write this?
-    return pickNumber;
-  };
+const getNumberIndex = () => {
+  return randomNum(cards.number.length);
+};
 
 //console.log(getNumber()) //test log
 
 // gets a random index from suit array
-const getSuit = () => {
-    const pickSuit = cards.suit[randomNum(cards.suit)]; //easier way to write this?
-    return pickSuit;
+const getSuitIndex = () => {
+  return randomNum(cards.suit.length);
   };
 
 //console.log(getSuit()) //test log
 
 // combines suit and number to give you a card
-const playCard = (player, func1, func2) => {
-  let card = `${player} has played a ${func1()} of ${func2()}`;
-  console.log(card)
+const playCard = (player) => {
+  const result = getNumberIndex();
+
+  let card = `${player} has played a ${cards.number[result]} of ${cards.suit[getSuitIndex()]}`;
+  console.log(card);
+  return result;
 };
 
-const playGame = () => {
-  let player1Hand = playCard(player1, getNumber, getSuit);
-  let player2Hand = playCard(player2, getNumber, getSuit);
+const playRound = () => {
+  let player1NumberIndex = playCard(player1);
+  let player2NumberIndex = playCard(player2);
+  if (player1NumberIndex === player2NumberIndex) {
+    console.log('You have tied.');
+  } else if (player1NumberIndex > player2NumberIndex) {
+    console.log(`${player1} has won!`);
+  } else {
+    console.log(`${player2} has won!`)
+  }
 };
 
-playGame()
-
-
-// to compare cards - use the index of the array for what wins
-// talk about issue I was having at playCard() function
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// // ATTEMPT USING OBJECTS
-// const players = {
-//   player1: {
-//     name: 'Justin',
-//     cardNumber: []
-//   },
-//   player2: {
-//     name: 'Victoria',
-//     cardNumber: []
-//   }
-// };
-
-// const cards = {
-//     suit: ['Spades', 'Clubs', 'Hearts', 'Diamonds'],
-//     number: [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace'],
-//   };
-
-// // generates random number to be used to assign suit and number
-// const randomNum = arr => {
-//       let random = Math.floor(Math.random() * arr.length);
-//       return random;
-//   };
-  
-// const getNumber = () => {
-//     const pickNumber = cards.number[randomNum(cards.number)]; //easier way to write this?
-//     return pickNumber;
-//   };
-
-// const getSuit = () => {
-//     const pickSuit = cards.suit[randomNum(cards.suit)]; //easier way to write this?
-//     return pickSuit;
-//   };
-
-
-// const playCard = (player, func1, func2) => {
-//   const card = `${player} has played a ${func1()} of ${func2()}`;
-//   return card;
-// };
-
-// const playGame = () => {
-//   console.log(playCard(players.player1.name, getNumber, getSuit));
-//   console.log(playCard(players.player2.name, getNumber, getSuit));
-// };
-
-// playGame()
-
+playRound()
