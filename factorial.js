@@ -25,17 +25,4 @@ const factorial = num => {
     console.log(`${num}! = ${reduceArr}`)
   };
   
-factorial(11);
-
-
-// let number = 8;
-// let factorial = 1;
-//   if (number < 0) {
-//     console.log("Cant find factorial for negative numbers")
-//   } else {
-//       for ( let num = 2; num <= number; num++) {
-//         factorial *= num;
-//       }
-
-//       console.log(`${number}! = ${factorial}`)
-//   }
+factorial(30);
