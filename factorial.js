@@ -22,23 +22,20 @@ const factorial = num => {
     const reduceArr = arr.reduce(
         (previousValue, currentValue) => previousValue * currentValue, initialValue)
 
-    console.log(reduceArr)
+    console.log(`${num}! = ${reduceArr}`)
   };
   
-  factorial(11);
+factorial(11);
 
 
-  
-/*// QUESTION ABOUT ASYNC...AWAIT
-const shopForBeans = require('./library.js');
-  
-async function getBeans() {
-  console.log(`1. Heading to the store to buy beans...`);
-  let value = await shopForBeans(); // WHY DOESNT NEXT LINE EXECUTE IMMEDIATELY?
-  console.log(`3. Great! I'm making ${value} beans for dinner tonight!`);
-}
-  
-getBeans();
-*/
-  
-  
+// let number = 8;
+// let factorial = 1;
+//   if (number < 0) {
+//     console.log("Cant find factorial for negative numbers")
+//   } else {
+//       for ( let num = 2; num <= number; num++) {
+//         factorial *= num;
+//       }
+
+//       console.log(`${number}! = ${factorial}`)
+//   }
